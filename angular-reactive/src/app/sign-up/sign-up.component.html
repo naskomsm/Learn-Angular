@@ -1,78 +1,72 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <div class="container">
 
-  <form (ngSubmit)="save()" [formGroup]="infoForm" novalidate>
+    <form (ngSubmit)="save()" [formGroup]="infoForm" novalidate>
 
-    <div class="form-group">
-      <label for="firstNameId">First Name</label>
-      <input type="text" id="firstNameId" class="form-control" formControlName="firstName"
-        [ngClass]="{'is-invalid': validationMessage['firstName'] }">
-      <span class="invalid-feedback">
+        <div class="form-group">
+            <label for="firstNameId">First Name</label>
+            <input type="text" id="firstNameId" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid': validationMessage['firstName'] }" placeholder="Enter your first name...">
+            <span class="invalid-feedback">
         {{ validationMessage.firstName }}
       </span>
-    </div>
+        </div>
 
 
-    <div class="form-group">
-      <label for="lastNameId">Last Name</label>
-      <input type="text" id="lastNameId" class="form-control" formControlName="lastName"
-        [ngClass]="{'is-invalid': validationMessage['lastName'] }">
-      <span class="invalid-feedback">
+        <div class="form-group">
+            <label for="lastNameId">Last Name</label>
+            <input type="text" id="lastNameId" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid': validationMessage['lastName'] }" placeholder="Enter your last name...">
+            <span class="invalid-feedback">
         {{ validationMessage.lastName }}
       </span>
-    </div>
+        </div>
 
-    <div class="form-group">
+        <div class="form-group">
 
-      <div formGroupName="emailGroup">
-        <label for="emailId">Email</label>
-        <input type="email" id="emailId" class="form-control" formControlName="email"
-          [ngClass]="{'is-invalid': validationMessage['email'] || validationMessage['emailGroup'] }">
-        <span class="invalid-feedback">
+            <div formGroupName="emailGroup">
+                <label for="emailId">Email</label>
+                <input type="email" id="emailId" class="form-control" formControlName="email" [ngClass]="{'is-invalid': validationMessage['email'] || validationMessage['emailGroup'] }">
+                <span class="invalid-feedback">
           {{ validationMessage.email }}
         </span>
 
-        <label for="confirmEmailId">Confirm email</label>
-        <input type="email" id="confirmEmailId" class="form-control" formControlName="confirmEmail"
-          [ngClass]="{'is-invalid': validationMessage['confirmEmail'] || validationMessage['emailGroup'] }">
-        <span class="invalid-feedback">
+                <label for="confirmEmailId">Confirm email</label>
+                <input type="email" id="confirmEmailId" class="form-control" formControlName="confirmEmail" [ngClass]="{'is-invalid': validationMessage['confirmEmail'] || validationMessage['emailGroup'] }">
+                <span class="invalid-feedback">
           {{ validationMessage.confirmEmail || validationMessage.emailGroup}}
         </span>
 
-      </div>
+            </div>
 
-    </div>
+        </div>
 
-    <div class="form-group">
-      <label for="ageId">Age</label>
-      <input type="number" id="ageId" class="form-control" formControlName="age"
-        [ngClass]="{'is-invalid': validationMessage['age'] }">
-      <span class="invalid-feedback">
+        <div class="form-group">
+            <label for="ageId">Age</label>
+            <input type="number" id="ageId" class="form-control" formControlName="age" [ngClass]="{'is-invalid': validationMessage['age'] }">
+            <span class="invalid-feedback">
         {{ validationMessage.age }}
       </span>
-    </div>
+        </div>
 
-    <div class="form-check-inline">
-      <label class="form-check-label" for="radioId">Required</label>
-      <input class="form-check-input" type="radio" id="radioId" value="true" formControlName="isRequired">
-    </div>
+        <div class="form-check-inline">
+            <label class="form-check-label" for="radioId">Required</label>
+            <input class="form-check-input" type="radio" id="radioId" value="true" formControlName="isRequired">
+        </div>
 
-    <div class="form-check-inline">
-      <label class="form-check-label" for="radioId">Not Required</label>
-      <input class="form-check-input" type="radio" id="radioId" value="false" formControlName="isRequired">
-    </div>
+        <div class="form-check-inline">
+            <label class="form-check-label" for="radioId">Not Required</label>
+            <input class="form-check-input" type="radio" id="radioId" value="false" formControlName="isRequired">
+        </div>
 
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary" [disabled]="!infoForm.valid">Submit</button>
-      <button type="button" class="btn btn-danger" (click)="populateData()">Test Data</button>
-      <button type="button" class="btn btn-warning" (click)="clearData()">Clear Data</button>
-    </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" [disabled]="!infoForm.valid">Submit</button>
+            <button type="button" class="btn btn-danger" (click)="populateData()">Test Data</button>
+            <button type="button" class="btn btn-warning" (click)="clearData()">Clear Data</button>
+        </div>
 
-    <p>Dirty: {{ infoForm.dirty }}</p>
-    <p>Touched: {{ infoForm.touched }}</p>
-    <p>Valid: {{ infoForm.valid }}</p>
-    <p>Value: {{ infoForm.value | json }}</p>
-  </form>
+        <p>Dirty: {{ infoForm.dirty }}</p>
+        <p>Touched: {{ infoForm.touched }}</p>
+        <p>Valid: {{ infoForm.valid }}</p>
+        <p>Value: {{ infoForm.value | json }}</p>
+    </form>
 </div>
