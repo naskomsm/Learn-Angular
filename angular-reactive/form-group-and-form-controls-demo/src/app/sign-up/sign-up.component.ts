@@ -88,6 +88,7 @@ export class SignUpComponent implements OnInit {
 
     const formProperties = this.infoForm.value;
 
+    // displaying error messages after 1s inactivity
     for (const property in formProperties) {
       if (property === 'emailGroup') {
         let emailControl = this.infoForm.get('emailGroup.email');
